@@ -128,6 +128,12 @@ class Vacancy:
 
     @staticmethod
     def filter_name_vacancy(list_vacancy: list, user_answer: str) -> None:
+        """
+        Метод для сортировки по названию вакансии
+        :param list_vacancy: список вакансий
+        :param user_answer: ключевое слово для фильтрации
+        :return:
+        """
         index = 0
         for item in list_vacancy:
             if user_answer in item.name.lower():
@@ -141,6 +147,12 @@ class Vacancy:
 
     @staticmethod
     def filter_name_city(list_vacancy: list, user_answer: str) -> None:
+        """
+        Метод для сортировки по городу
+        :param list_vacancy: список вакансий
+        :param user_answer: ключевой город для фильтрации
+        :return:
+        """
         index = 0
         for item in list_vacancy:
             if user_answer in item.area.lower():
@@ -154,6 +166,12 @@ class Vacancy:
 
     @staticmethod
     def filter_name_company(list_vacancy: list, user_answer: str) -> None:
+        """
+        Метод для сортировки вакансий по названию компании
+        :param list_vacancy: список вакансий
+        :param user_answer: ключевое название компании
+        :return:
+        """
         index = 0
         for item in list_vacancy:
             if user_answer == item.employer.lower():
@@ -167,6 +185,13 @@ class Vacancy:
 
     @staticmethod
     def filter_user_salary(list_vacancy: list, user_from: int, user_to: int) -> None:
+        """
+        Метод для сортировки вакансий по зарплате
+        :param list_vacancy: список вакансий
+        :param user_from: нижнее значение зарплаты
+        :param user_to: верхнее значение зарплаты
+        :return:
+        """
         index = 0
         for item in list_vacancy:
             if item.salary:
