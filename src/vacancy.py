@@ -4,17 +4,29 @@ class Vacancy:
         self.id = kwargs['id']
         self.name = kwargs['name']
         self.salary = kwargs['salary']
-        if self.salary is None:
-            self.from_salary = 0
-            self.to_salary = 0
-        else:
-            self.from_salary = self.salary.get('from')
-            self.to_salary = self.salary.get('to')
         self.experience = kwargs['experience']
         self.description = kwargs['description']
         self.area = kwargs['area']
         self.employer = kwargs['employer']
         self.url_vacancy = kwargs['url_vacancy']
+
+    @property
+    def from_salary(self):
+        """Геттер возвращающий значение зарплаты от"""
+        if self.salary is None:
+            from_salary = 0
+        else:
+            from_salary = self.salary.get('from')
+        return from_salary
+
+    @property
+    def to_salary(self):
+        """Геттер возвращающий значение зарплаты до"""
+        if self.salary is None:
+            to_salary = 0
+        else:
+            to_salary = self.salary.get('to')
+        return to_salary
 
     @property
     def value(self) -> int:
