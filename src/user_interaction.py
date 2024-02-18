@@ -90,13 +90,15 @@ def get_vacancy_in_platform():
     sorted_vacancies = Vacancy.sort_vacancies(filtered_vacancies)
     top_vacancies = Vacancy.get_top_vacancies(sorted_vacancies, top_n)
     Vacancy.print_vacancies(top_vacancies)
+    total = len(top_vacancies)
+
+    print(f"Всего вакансий получено: {total}")
 
     save_list_vacancy = input("\nХотите ли сохранить вакансии:\n"
                               "1 - да\n"
                               "2 - нет\n").strip()
     if save_list_vacancy == "1":
         save = JSONSaver()
-        total = len(list_vacancy)
         save.file_path = JSON_PATH_FILTER_VACANCY
         for i, vacancy in enumerate(top_vacancies, 1):
             save.add_vacancy(vacancy.__dict__)
